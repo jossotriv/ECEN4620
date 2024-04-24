@@ -9,9 +9,10 @@
 // For SPI mode, we need a CS pin
 #define LSM_CS 10
 // For software-SPI mode we need SCK/MOSI/MISO pins
-#define LSM_SCK 13
-#define LSM_MISO 12
-#define LSM_MOSI 11
+#define LSM_SCK  18  // Default VSPI SCK pin on many DevKit models
+#define LSM_MISO 19  // Default VSPI MISO pin
+#define LSM_MOSI 23  // Default VSPI MOSI pin
+
 
 //BLE Server name (the other ESP32 name running the server sketch)
 #define bleServerName "XIAOESP32S3_BLE"

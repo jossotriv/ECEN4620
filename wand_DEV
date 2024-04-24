@@ -253,7 +253,7 @@ void loop() {
       signal = RED;
       Serial.println("RED SIGNAL SENT");
       messageFlag=1;
-      success_counter[RED]=1;
+      success_counter[0]=1;
       
     } else if(xAccel <=-3.0){
       Serial.print("xAccel:");
@@ -261,7 +261,7 @@ void loop() {
       signal = GREEN;
       Serial.println("GREEN SIGNAL SENT");
       messageFlag=1;
-      success_counter[GREEN]=1;
+      success_counter[1]=1;
       
     }else if(yAccel >=3.0){
       Serial.print("yAccel:");
@@ -269,14 +269,14 @@ void loop() {
       signal = BLUE;
       Serial.println("BLUE SIGNAL SENT");
       messageFlag=1;
-      success_counter[BLUE]=1;
+      success_counter[2]=1;
     }else if(yAccel <=-3.0){
       Serial.print("yAccel:");
       Serial.println(yAccel);
       signal = PURPLE;
       Serial.println("PURPLE SIGNAL SENT");
       messageFlag=1;
-      success_counter[PURPLE]=1;
+      success_counter[3]=1;
       
     }else if (buttonState == LOW) {
       signal = RESET;

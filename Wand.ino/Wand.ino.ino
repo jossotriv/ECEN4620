@@ -227,7 +227,7 @@ void loop() {
     Serial.println(signal);
     Serial.print("xAccel: ");
     Serial.println(xAccel);
-    if(xAccel >3.0){
+    if(xAccel >=3.0){
       Serial.println(xAccel);
       signal = 1;
       Serial.println("RED SIGNAL SENT");

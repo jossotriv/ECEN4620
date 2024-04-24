@@ -6,8 +6,8 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-#define LED_PIN     D3
-#define NUM_LEDS    5  // Update the number of LEDs
+#define LED_PIN     13
+#define NUM_LEDS    1
 
 // NeoPixel setup
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
@@ -86,23 +86,21 @@ void loop() {
   int signal = atoi(xVal);
   
   if (doconnect) {
-    uint32_t color;
     if (signal == 0) {
-      Serial.println("BLUE LEDs turning on:");
-      color = strip.Color(0, 0, 255); // BLUE
+      Serial.println("BLUE LED turning on:");
+      strip.setPixelColor(0, strip.Color(0, 0, 255)); // BLUE
     } else if (signal == 1) {
-      Serial.println("RED LEDs turning on:");
-      color = strip.Color(255, 0, 0); // RED
-    }
-
-    // Set color for all LEDs
-    for (int i = 0; i < NUM_LEDS; i++) {
-      strip.setPixelColor(i, color);
+      Serial.println("RED LED turning on:");
+      strip.setPixelColor(0, strip.Color(255, 0, 0)); // RED
     }
     strip.show(); // Update the strip to set the color
 
-    // Handle delay based on signal
-    delay(signal == 1 ? 4000 : 1000);
+    if (signal == 1) {
+      Serial.println("Signal Locked");
+      delay(4000);
+    } else {
+      delay(1000);
+    }
   } else {
     Serial.println("Not Connected");
   }

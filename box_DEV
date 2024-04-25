@@ -105,14 +105,61 @@ void loop() {
   if (signal == COMPLETE) {
     // Set your desired pattern here
     // For example, alternating red and green colors
-    for (int i = 0; i < NUM_LEDS; i += 2) {
-      strip.setPixelColor(i, strip.Color(255, 0, 0));  // Red
-    }
-    for (int i = 1; i < NUM_LEDS; i += 2) {
-      strip.setPixelColor(i, strip.Color(0, 255, 0));  // Green
+    for (int i = 0; i < NUM_LEDS; i++) {
+        if (i % 2 == 0) {
+            strip.setPixelColor(i, strip.Color(255, 0, 0));  // Red
+        } else {
+            strip.setPixelColor(i, strip.Color(0, 255, 0));  // Green
+        }
     }
     strip.show(); // Display the pattern
+    delay(500);
+
     //Reset Colors
+    for (int i = 0; i < NUM_LEDS; i++) {
+        if (i % 2 == 0) {
+            strip.setPixelColor(i, strip.Color(0, 255, 0));  // Green
+        } else {
+            strip.setPixelColor(i, strip.Color(255, 0, 0));  // Red
+        }
+    }
+    strip.show(); // Display the pattern
+    delay(500);
+    
+    for (int i = 0; i < NUM_LEDS; i++) {
+        if (i % 2 == 0) {
+            strip.setPixelColor(i, strip.Color(0, 0, 255));  // Blue
+        } else {
+            strip.setPixelColor(i, strip.Color(255, 0, 255));  // Purple
+        }
+    }
+    strip.show(); // Display the pattern
+    delay(500);
+
+    //Reset Colors
+    for (int i = 0; i < NUM_LEDS; i++) {
+        if (i % 2 == 0) {
+            strip.setPixelColor(i, strip.Color(255, 0, 255));  // Purple 
+        } else {
+            strip.setPixelColor(i, strip.Color(0, 0, 255));  // Blue
+        }
+    }
+    strip.show(); // Display the pattern
+    delay(500);
+    //reset colors
+    strip.setPixelColor(1, strip.Color(0, 0, 255)); // Blue permanent
+    strip.setPixelColor(2, strip.Color(255, 0, 0)); // red permanent
+    strip.setPixelColor(3, strip.Color(255, 0, 255)); // purple permanent
+    strip.setPixelColor(4, strip.Color(0, 255, 0)); // green permanent
+    strip.show(); // Display the pattern
+    delay(500);
+    strip.setPixelColor(1, strip.Color(0, 255, 0)); // green permanent
+    strip.setPixelColor(2, strip.Color(255, 0, 255)); // purple permanent
+    strip.setPixelColor(3, strip.Color(255, 0, 0)); // red permanent
+    strip.setPixelColor(4, strip.Color(0, 0, 255)); // Blue permanent
+    //Reset Colors
+    strip.show(); // Display the pattern
+    delay(500);
     strip.setPixelColor(1, strip.Color(0, 0, 0)); // PURPLE permanent
     strip.setPixelColor(2, strip.Color(0, 0, 0)); // PURPLE permanent
     strip.setPixelColor(3, strip.Color(0, 0, 0)); // PURPLE permanent
@@ -155,7 +202,7 @@ void loop() {
 
     if (signal != WHITE) {
       Serial.println("Signal Locked");
-      delay(4000);
+      delay(2000);
     } else {
       delay(1000);
     }

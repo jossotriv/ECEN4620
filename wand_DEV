@@ -247,6 +247,7 @@ void loop() {
       success_counter[2]=0;
       success_counter[3]=0;
       messageFlag=1;
+      delay(3000);
       Serial.println("RESETTING");
     } else if(xAccel >=3.0){
       Serial.println(xAccel);
@@ -305,7 +306,7 @@ void loop() {
     
     if(messageFlag){ 
       Serial.print("Signal Locked");
-      delay(5000);
+      delay(3000);
     }else{
       delay(1000); // bluetooth stack will go into congestion, if too many packets are sent
     }
